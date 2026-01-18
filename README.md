@@ -15,12 +15,12 @@
 
 Generate an encryption key:
 ```bash
-openssl rand -base64 32
+ARCENC=$(openssl rand -base64 32)
 ```
 
 Generate a JWT secret:
 ```bash
-openssl rand -hex 32
+ARCJWT=$(openssl rand -hex 32)
 ```
 
 
@@ -30,8 +30,11 @@ rm -fr ~/appdata/docker_files/arcane
 git clone https://github.com/FinchTechSoCal/docker-arcane.git ~/appdata/docker_files/arcane
 ```
 
+
 **Modify .env**
 ```bash
+sed -i 's/ENCRYPTION_KEY=/ENCRYPTION_KEY='$ARCENC'/g' .env
+sed -i 's/JWT_SECRET=/JWT_SECRET='$ARCJWT'/g' .env
 nano ~/appdata/docker_files/arcane/.env
 ```
 
