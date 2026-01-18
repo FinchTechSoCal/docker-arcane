@@ -1,0 +1,29 @@
+#
+# https://getarcane.app/docs/setup/installation
+#
+services:
+  arcane:
+    image: ghcr.io/getarcaneapp/arcane:latest
+    container_name: arcane
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - APP_URL=${APP_URL} # http://localhost:3552
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - LOG_JSON=false
+      - OIDC_ENABLED=false
+      - DATABASE_URL=file:data/arcane.db?_pragma=journal_mode(WAL)&_pragma=busy_timeout(2500)&_txlock=immediate
+    volumes:
+      - ${LOCVOL1}arcane-data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 3552:3552
+    restart: unless-stopped
+
+networks:
+  default:
+    name: ${CONNET}
+    external: true
