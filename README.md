@@ -8,6 +8,8 @@
   <img src="https://github.com/getarcaneapp/arcane/blob/main/.github/assets/img/PNG-3.png" alt="Arcane Logo" width="500" />
   <p>Modern Docker Management, Designed for Everyone.</p>
 
+</div>
+
 <br />
 ---
 
