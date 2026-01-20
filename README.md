@@ -43,3 +43,11 @@ nano ~/appdata/docker_files/arcane/.env
 ```bash
 docker compose -f ~/appdata/docker_files/arcane/docker-compose.yml up -d
 ```
+
+---
+
+## OIDC
+* Issuer URL: https://accounts.google.com
+* Scopes: openid email profile
+* Admin Claim: email
+* Requires Value(s): <your gmail address>
