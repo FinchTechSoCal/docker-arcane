@@ -21,7 +21,7 @@ services:
     volumes:
       - ${LOCVOL1}arcane-data:/app/data
       - /var/run/docker.sock:/var/run/docker.sock
-      - ${LOCVOL1}:${PROJECTS_DIRECTORY} # space for git pull
+      - ${LOCVOL1}docker_files:${PROJECTS_DIRECTORY} # space for git pull
     ports:
       - 3552:3552
     restart: unless-stopped
