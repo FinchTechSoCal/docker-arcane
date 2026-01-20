@@ -13,30 +13,21 @@
 <br />
 ---
 
-Generate an encryption key:
-```bash
-ARCENC=$(openssl rand -base64 32)
-```
-
-Generate a JWT secret:
-```bash
-ARCJWT=$(openssl rand -hex 32)
-```
-
-
 **Use**
 ```bash
 rm -fr ~/appdata/docker_files/arcane
 git clone https://github.com/FinchTechSoCal/docker-arcane.git ~/appdata/docker_files/arcane
+sed -i 's;your_own_encryption_key;'$(openssl rand -base64 32)';g' ~/appdata/docker_files/arcane/.env
+sed -i 's;your_own_jwt_secret;'$(openssl rand -hex 32)';g' ~/appdata/docker_files/arcane/.env
+sed -i 's;/path/to/appdata/;'$HOME'/appdata/;g' ~/appdata/docker_files/arcane/.env
 ```
 
 
 **Modify .env**
 ```bash
-sed -i 's;your_own_encryption_key;'$ARCENC';g' ~/appdata/docker_files/arcane/.env
-sed -i 's;your_own_jwt_secret;'$ARCJWT';g' ~/appdata/docker_files/arcane/.env
+sed -i 's;your_own_encryption_key;'$(openssl rand -base64 32)';g' ~/appdata/docker_files/arcane/.env
+sed -i 's;your_own_jwt_secret;'$(openssl rand -hex 32)';g' ~/appdata/docker_files/arcane/.env
 sed -i 's;/path/to/appdata/;'$HOME'/appdata/;g' ~/appdata/docker_files/arcane/.env
-nano ~/appdata/docker_files/arcane/.env
 ```
 
 **Run**
@@ -51,3 +42,14 @@ docker compose -f ~/appdata/docker_files/arcane/docker-compose.yml up -d
 * Scopes: openid email profile
 * Admin Claim: email
 * Requires Value(s): <your gmail address>
+
+## Keys
+Generate an encryption key:
+```bash
+ARCENC=$(openssl rand -base64 32)
+```
+
+Generate a JWT secret:
+```bash
+ARCJWT=$(openssl rand -hex 32)
+```
