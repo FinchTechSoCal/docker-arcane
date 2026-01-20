@@ -22,14 +22,6 @@ sed -i 's;your_own_jwt_secret;'$(openssl rand -hex 32)';g' ~/appdata/docker_file
 sed -i 's;/path/to/appdata/;'$HOME'/appdata/;g' ~/appdata/docker_files/arcane/.env
 ```
 
-
-**Modify .env**
-```bash
-sed -i 's;your_own_encryption_key;'$(openssl rand -base64 32)';g' ~/appdata/docker_files/arcane/.env
-sed -i 's;your_own_jwt_secret;'$(openssl rand -hex 32)';g' ~/appdata/docker_files/arcane/.env
-sed -i 's;/path/to/appdata/;'$HOME'/appdata/;g' ~/appdata/docker_files/arcane/.env
-```
-
 **Run**
 ```bash
 docker compose -f ~/appdata/docker_files/arcane/docker-compose.yml up -d
