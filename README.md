@@ -33,8 +33,9 @@ git clone https://github.com/FinchTechSoCal/docker-arcane.git ~/appdata/docker_f
 
 **Modify .env**
 ```bash
-sed -i 's/ENCRYPTION_KEY=/ENCRYPTION_KEY='$ARCENC'/g' .env
-sed -i 's/JWT_SECRET=/JWT_SECRET='$ARCJWT'/g' .env
+sed -i 's;your_own_encryption_key;'$ARCENC';g' ~/appdata/docker_files/arcane.env
+sed -i 's;your_own_jwt_secret;'$ARCJWT';g' ~/appdata/docker_files/arcane.env
+sed -i 's;/path/to/appdata/;'$(~/)appdata/$';g' ~/appdata/docker_files/arcane.env
 nano ~/appdata/docker_files/arcane/.env
 ```
 
