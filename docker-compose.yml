@@ -1,5 +1,6 @@
 #
 # https://getarcane.app/docs/setup/installation
+# OIDC: https://console.cloud.google.com/auth/clients
 #
 services:
   arcane:
@@ -13,10 +14,10 @@ services:
       - ENCRYPTION_KEY=${ENCRYPTION_KEY}
       - JWT_SECRET=${JWT_SECRET}
       - LOG_LEVEL=${LOG_LEVEL}
-      - LOG_JSON=false
-      - OIDC_ENABLED=false
+      - LOG_JSON=${LOG_JSON}
       - DATABASE_URL=file:data/arcane.db?_pragma=journal_mode(WAL)&_pragma=busy_timeout(2500)&_txlock=immediate
       - PROJECTS_DIRECTORY=${PROJECTS_DIRECTORY}
+      - OIDC_ENABLED=${OIDC_ENABLED} # SSO docs - https://getarcane.app/docs/configuration/sso
     volumes:
       - ${LOCVOL1}arcane-data:/app/data
       - /var/run/docker.sock:/var/run/docker.sock
