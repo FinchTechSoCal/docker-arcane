@@ -29,6 +29,20 @@ docker compose -f ~/appdata/docker_files/arcane/docker-compose.yml up -d
 
 ---
 
+## Default Login:
+Username:
+```
+arcane
+```
+
+Password:
+```
+arcane-admin
+```
+
+---
+
+
 ## OIDC
 * Issuer URL: https://accounts.google.com
 * Scopes: openid email profile

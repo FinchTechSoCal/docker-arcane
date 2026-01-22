@@ -1,6 +1,7 @@
 #
 # https://getarcane.app/docs/setup/installation
 # OIDC: https://console.cloud.google.com/auth/clients
+# default login: arcane / arcane-admin
 #
 services:
   arcane:
